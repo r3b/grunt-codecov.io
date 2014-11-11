@@ -32,19 +32,9 @@ module.exports = function(grunt) {
     codecov_io: {
       default_options: {
         options: {
+          token: 'b1c6f68b-0029-4fad-aaa5-c8eaa8753953'
         },
-        files: {
-          'tmp/default_options': ['test/fixtures/testing', 'test/fixtures/123'],
-        },
-      },
-      custom_options: {
-        options: {
-          separator: ': ',
-          punctuation: ' !!!',
-        },
-        files: {
-          'tmp/custom_options': ['test/fixtures/testing', 'test/fixtures/123'],
-        },
+        files: {report:'test/lcov.info'},
       },
     },
 
@@ -65,7 +55,7 @@ module.exports = function(grunt) {
 
   // Whenever the "test" task is run, first clean the "tmp" dir, then run this
   // plugin's task(s), then test the result.
-  grunt.registerTask('test', ['clean', 'codecov_io', 'nodeunit']);
+  grunt.registerTask('test', ['clean', 'codecov_io']);
 
   // By default, lint and run all tests.
   grunt.registerTask('default', ['jshint', 'test']);
